@@ -4,7 +4,7 @@ const { connectDB } = require("./src/utils/db")
 const env = require("dotenv");
 env.config()
 const router = require('./src/api/routes/characters.routes')
-
+const cors = require("cors")
 
 console.log(process.env)
 
@@ -13,7 +13,7 @@ connectDB();
 const server = express(); // creamos el servidor, mas facil
 const PORT = process.env.PORT;
 
-
+server.use(cors())
 server.use(express.json())
 server.use("/", router)
 
