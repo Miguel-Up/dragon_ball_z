@@ -50,8 +50,14 @@ const getcharacter = async (req, res) => {
 
 }
 
+const getCharacterById = async (req, res) => {
+    const { id } = req.params
+    const character = await Characters.findById(id)
+    res.json(character)
+}
 
 
 
 
-module.exports = { getcharacter }
+
+module.exports = { getcharacter, getCharacterById }
