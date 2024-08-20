@@ -57,7 +57,18 @@ const getCharacterById = async (req, res) => {
 }
 
 
+const updateCharacter = async (req, res) => {
+    const char = req.body;
+    const { id } = req.params
+    const character = await Characters.findByIdAndUpdate(
+        id,
+        char,
+        { new: true }
+    )
+    res.json(character)
+}
 
 
 
-module.exports = { getcharacter, getCharacterById }
+
+module.exports = { getcharacter, getCharacterById, updateCharacter }
